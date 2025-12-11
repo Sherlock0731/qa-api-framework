@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  api-tests:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: api-test-framework
+    volumes:
+      - ../target:/app/target
+      - ../logs:/app/logs
+    environment:
+      - env=${ENV:-local}
+      - thread.count=${THREAD_COUNT:-4}
+      - REQRES_BASE_URL=${REQRES_BASE_URL}
+      - REQRES_API_KEY=${REQRES_API_KEY}
+      - BEECEPTOR_BASE_URL=${BEECEPTOR_BASE_URL}
+      - TEST_USER_EMAIL=${TEST_USER_EMAIL}
+      - TEST_USER_PASSWORD=${TEST_USER_PASSWORD}
+      - TEST_USER_FIRSTNAME=${TEST_USER_FIRSTNAME}
+      - TEST_USER_LASTNAME=${TEST_USER_LASTNAME}
+      - TEST_USER_ID=${TEST_USER_ID}
+    command: >
+      mvn clean test
+      -Denv=${ENV:-local}
+      -Dthread.count=${THREAD_COUNT:-4}
+      -Dtest.groups=${TEST_GROUPS:-}
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge

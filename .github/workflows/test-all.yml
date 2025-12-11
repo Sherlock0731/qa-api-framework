@@ -1,0 +1,84 @@
+name: API Tests - All
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+    inputs:
+      thread_count:
+        description: 'Number of parallel threads'
+        required: false
+        default: '4'
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '4'
+          - '8'
+
+jobs:
+  test-all:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+      
+      - name: Run all tests
+        run: |
+          mvn clean test \
+            -Denv=ci \
+            -Dthread.count=${{ github.event.inputs.thread_count || '4' }} \
+            -DREQRES_BASE_URL=${{ secrets.REQRES_BASE_URL }} \
+            -DREQRES_API_KEY=${{ secrets.REQRES_API_KEY }} \
+            -DBEECEPTOR_BASE_URL=${{ secrets.BEECEPTOR_BASE_URL }} \
+            -DTEST_USER_EMAIL=${{ secrets.TEST_USER_EMAIL }} \
+            -DTEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }} \
+            -DTEST_USER_FIRSTNAME=${{ secrets.TEST_USER_FIRSTNAME }} \
+            -DTEST_USER_LASTNAME=${{ secrets.TEST_USER_LASTNAME }} \
+            -DTEST_USER_ID=${{ secrets.TEST_USER_ID }} \
+            -DTHREAD_COUNT=${{ github.event.inputs.thread_count || '4' }}
+      
+      - name: Generate Allure Report
+        if: always()
+        run: mvn allure:report
+      
+      - name: Upload Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-all
+          path: target/allure-results
+          retention-days: 30
+      
+      - name: Upload Allure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-all
+          path: target/site/allure-maven-plugin
+          retention-days: 30
+      
+      - name: Upload Test Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs-all
+          path: logs/
+          retention-days: 7
+      
+      - name: Publish Test Results
+        if: always()
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        with:
+          files: target/surefire-reports/*.xml
+          check_name: Test Results - All Tests
