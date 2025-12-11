@@ -5,6 +5,8 @@
 [![Rest-Assured](https://img.shields.io/badge/Rest--Assured-5.4.0-purple.svg)](https://rest-assured.io/)
 [![Allure](https://img.shields.io/badge/Allure-2.25.0-yellow.svg)](http://allure.qatools.ru/)
 
+![Tests](https://github.com/Sherlock0731/qa-api-framework/actions/workflows/test-all.yml/badge.svg)
+
 Многопоточный фреймворк для автоматизации тестирования REST API с использованием современного стека технологий.
 
 ## Технологический стек

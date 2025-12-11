@@ -57,7 +57,15 @@ jobs:
           name: allure-report-smoke
           path: target/site/allure-maven-plugin
           retention-days: 30
-      
+
+      - name: Upload Test Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs-all
+          path: target/logs/
+          retention-days: 7
+
       - name: Publish Test Results
         if: always()
         uses: EnricoMi/publish-unit-test-result-action@v2
