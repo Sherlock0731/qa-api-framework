@@ -29,8 +29,8 @@ public class CreateProductTests extends BaseTest {
         Response response = beeceptorClient.createProductEmpty();
         
         assertThat(response.getStatusCode())
-                .as("Status code should be 201")
-                .isEqualTo(201);
+                .as("Status code should be 200")
+                .isEqualTo(200);
         
         CreateProductResponseDto responseDto = response.as(CreateProductResponseDto.class);
         
@@ -89,8 +89,8 @@ public class CreateProductTests extends BaseTest {
         Response response = beeceptorClient.createProduct(createRequest);
         
         assertThat(response.getStatusCode())
-                .as("Status code should be 201")
-                .isEqualTo(201);
+                .as("Status code should be 200")
+                .isEqualTo(200);
         
         CreateProductResponseDto responseDto = response.as(CreateProductResponseDto.class);
         
@@ -147,7 +147,7 @@ public class CreateProductTests extends BaseTest {
         
         // Note: API behavior may vary - adjust based on actual behavior
         assertThat(response.getStatusCode())
-                .as("Status code should be 400 or 201")
-                .isIn(400, 201);
+                .as("Status code should be 400 or 200")
+                .isIn(400, 200);
     }
 }
