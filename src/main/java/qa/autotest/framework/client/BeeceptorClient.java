@@ -93,4 +93,13 @@ public class BeeceptorClient extends BaseRestClient {
         Response response = createProduct(productDto);
         return response.as(CreateProductResponseDto.class);
     }
+
+    /**
+     * Create product with empty body (POST without body)
+     */
+    public Response createProductEmptyBody() {
+        log.info("Creating product with empty body");
+        Response response = post("/products", "");
+        return response;
+    }
 }
