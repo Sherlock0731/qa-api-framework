@@ -147,7 +147,7 @@ jobs:
       # Deploy Allure report to gh-pages
       # ─────────────────────────────────────────────
       - name: Deploy Allure Report to GitHub Pages
-        if: github.ref == 'refs/heads/main'
+        if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
