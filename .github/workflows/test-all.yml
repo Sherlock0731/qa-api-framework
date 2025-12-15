@@ -86,7 +86,7 @@ jobs:
       # ─────────────────────────────────────────────
       - name: Run all API tests
         run: |
-          mvn clean test \
+          mvn test \
             -Denv=ci \
             -Dthread.count=${{ github.event.inputs.thread_count || '4' }} \
             -DREQRES_BASE_URL=${{ secrets.REQRES_BASE_URL }} \

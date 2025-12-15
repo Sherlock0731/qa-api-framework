@@ -85,7 +85,7 @@ jobs:
       # ─────────────────────────────────────────────
       - name: Run products tests
         run: |
-          mvn clean test \
+          mvn test \
             -Pproducts \
             -Denv=ci \
             -Dthread.count=${{ github.event.inputs.thread_count || '2' }} \

@@ -89,7 +89,7 @@ jobs:
       # ─────────────────────────────────────────────
       - name: Run smoke tests
         run: |
-          mvn clean test \
+          mvn test \
             -Psmoke \
             -Denv=ci \
             -Dthread.count=4 \

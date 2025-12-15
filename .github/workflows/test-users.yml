@@ -87,7 +87,7 @@ jobs:
       # ─────────────────────────────────────────────
       - name: Run users tests
         run: |
-          mvn clean test \
+          mvn test \
             -Pusers \
             -Denv=ci \
             -Dthread.count=${{ github.event.inputs.thread_count || '2' }} \
