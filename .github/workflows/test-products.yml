@@ -139,9 +139,11 @@ jobs:
       # ─────────────────────────────────────────────
       # Deploy Allure report to gh-pages
       # ─────────────────────────────────────────────
-      - name: Deploy Allure report
-        if: always()
+      - name: Deploy Allure Report to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: target/site/allure-maven-plugin
+          keep_files: false
