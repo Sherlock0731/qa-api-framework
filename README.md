@@ -320,6 +320,15 @@ public class MyApiClient extends BaseRestClient {
 4. Push в branch (`git push origin feature/amazing-feature`)
 5. Создайте Pull Request
 
+## Документация
+
+Подробная документация доступна в папке `docs/`:
+
+- [Архитектура](docs/ARCHITECTURE.md)
+- [Примеры команд](docs/COMMANDS_EXAMPLES.md)
+- [Инструкция по запуску](docs/RUN_INSTRUCTIONS.md)
+- [Матрица тест-кейсов](docs/TEST_CASES_MATRIX.md)
+
 ## License
 
 This project is licensed under the MIT License.
