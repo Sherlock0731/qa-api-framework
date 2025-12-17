@@ -5,7 +5,7 @@
 - **Всего тест-кейсов**: 28
 - **Критичных (P0)**: 12
 - **Высокий приоритет (P1)**: 10
-- **Средний приоритет (P2)**: 8
+- **Средний приоритет (P2)**: 7
 
 ## Users API (17 тест-кейсов)
 
@@ -50,14 +50,13 @@
 | TC-020 | Verify UUID format in product ID | P2 | GetProductsListTests | ✅ Implemented |
 | TC-021 | Verify price validation | P2 | GetProductsListTests | ✅ Implemented |
 
-### GET /product/{id} (4 теста)
+### GET /product/{id} (3 теста)
 
 | ID | Название | Приоритет | Класс | Статус |
 |----|----------|-----------|-------|--------|
 | TC-022 | Successfully get product by existing ID | P0 | GetProductByIdTests | ✅ Implemented |
 | TC-023 | Get product with non-existent ID | P0 | GetProductByIdTests | ✅ Implemented |
 | TC-024 | Get product with invalid UUID format | P2 | GetProductByIdTests | ✅ Implemented |
-| TC-025 | Verify data consistency | P2 | GetProductByIdTests | ✅ Implemented |
 
 ### POST /products (5 тестов)
 
@@ -75,9 +74,9 @@
 
 | Тег | Количество тестов |
 |-----|-------------------|
-| users | 15 |
-| products | 13 |
-| smoke | 6 |
+| users | 15                |
+| products | 12                |
+| smoke | 6                 |
 
 ## Smoke тесты
 
