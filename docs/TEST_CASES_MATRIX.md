@@ -4,8 +4,8 @@
 
 - **Всего тест-кейсов**: 27
 - **Критичных (P0)**: 12
-- **Высокий приоритет (P1)**: 10
-- **Средний приоритет (P2)**: 7
+- **Высокий приоритет (P1)**: 7
+- **Средний приоритет (P2)**: 8
 
 ## Users API (17 тест-кейсов)
 
@@ -67,28 +67,6 @@
 | TC-028 | Create product with custom data | P0 | CreateProductTests | ✅ Implemented |
 | TC-029 | Verify createdAt format with timezone | P2 | CreateProductTests | ✅ Implemented |
 | TC-030 | Create product with negative price | P2 | CreateProductTests | ✅ Implemented |
-
-## Статистика покрытия
-
-### По тегам
-
-| Тег | Количество тестов |
-|-----|-------------------|
-| users | 15                |
-| products | 12                |
-| smoke | 6                 |
-
-## Smoke тесты
-
-Smoke suite включает следующие критичные тесты:
-
-| ID | Название | API |
-|----|----------|-----|
-| TC-001 | Get users list | Users |
-| TC-002 | Verify user structure | Users |
-| TC-006 | Login success | Users |
-| TC-018 | Get products list | Products |
-| TC-019 | Verify product data types | Products |
 
 ## Метрики качества
 
