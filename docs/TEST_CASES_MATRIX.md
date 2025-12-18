@@ -2,7 +2,7 @@
 
 ## Общая информация
 
-- **Всего тест-кейсов**: 28
+- **Всего тест-кейсов**: 27
 - **Критичных (P0)**: 12
 - **Высокий приоритет (P1)**: 10
 - **Средний приоритет (P2)**: 7
@@ -39,7 +39,7 @@
 | TC-016 | Verify createdAt field format | P2 | CreateUserTests | ✅ Implemented |
 | TC-017 | Verify ID uniqueness | P2 | CreateUserTests | ✅ Implemented |
 
-## Products API (13 тест-кейсов)
+## Products API (12 тест-кейсов)
 
 ### GET /products (4 теста)
 
