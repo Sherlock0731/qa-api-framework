@@ -105,16 +105,16 @@ docker-compose -f docker/docker-compose.yml up -d
 
 ## Тестовые сценарии
 
-Фреймворк включает **28 критичных тест-кейсов**:
+Фреймворк включает **27 критичных тест-кейсов**:
 
 ### Users API (15 тестов)
 - **GET /api/users** - получение списка пользователей (TC-001 - TC-003)
 - **POST /api/login** - аутентификация (TC-006 - TC-011)
 - **POST /api/users** - создание пользователя (TC-012 - TC-017)
 
-### Products API (13 тестов)
+### Products API (12 тестов)
 - **GET /products** - получение списка продуктов (TC-018 - TC-021)
-- **GET /product/{id}** - получение продукта по ID (TC-022 - TC-025)
+- **GET /product/{id}** - получение продукта по ID (TC-022 - TC-024)
 - **POST /products** - создание продукта (TC-026 - TC-030)
 
 ## Конфигурация
@@ -331,7 +331,7 @@ public class MyApiClient extends BaseRestClient {
 
 ## License
 
-This project is licensed under the MIT License.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## Authors
 

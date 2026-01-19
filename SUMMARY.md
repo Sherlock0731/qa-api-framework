@@ -20,15 +20,15 @@
 ## Статистика проекта
 
 ### Тесты
-- **Реализовано**: 28
+- **Реализовано**: 27
 - **Критичных (P0)**: 12
-- **Высокий приоритет (P1)**: 10
+- **Высокий приоритет (P1)**: 7
 - **Средний приоритет (P2)**: 8
 
 ### API Coverage
 - **Users API**: 15 тестов (3 эндпоинта)
-- **Products API**: 13 тестов (3 эндпоинта)
-- **Smoke Suite**: 6 тестов
+- **Products API**: 12 тестов (3 эндпоинта)
+- **Smoke Suite**: 9 тестов
 
 ## Технологический стек
 
@@ -83,13 +83,13 @@ qa-api-framework/
 │   └── 📂 java/examples/                  # Test Classes (7)
 │       ├── BaseTest.java
 │       ├── 📂 users/                      # 3 test classes
-│       │   ├── GetUsersListTests.java
-│       │   ├── LoginTests.java
-│       │   └── CreateUserTests.java
+│       │   ├── GetUsersListTests.java     # 3 tests
+│       │   ├── LoginTests.java            # 6 tests
+│       │   └── CreateUserTests.java       # 6 tests
 │       └── 📂 products/                   # 3 test classes
-│           ├── GetProductsListTests.java
-│           ├── GetProductByIdTests.java
-│           └── CreateProductTests.java
+│           ├── GetProductsListTests.java  # 4 tests
+│           ├── GetProductByIdTests.java   # 3 tests
+│           └── CreateProductTests.java    # 5 tests
 │
 ├── 📂 docker/                             # Docker configs
 │   ├── Dockerfile
@@ -160,10 +160,10 @@ qa-api-framework/
 
 | Тесты | Sequential | Parallel (4 threads) | Parallel (8 threads) |
 |-------|-----------|---------------------|---------------------|
-| Smoke (6) | ~30 sec | ~15 sec | ~10 sec |
+| Smoke (9) | ~45 sec | ~20 sec | ~12 sec |
 | Users (15) | ~60 sec | ~25 sec | ~15 sec |
-| Products (13) | ~50 sec | ~20 sec | ~12 sec |
-| All (28) | ~2.5 min | ~45 sec | ~30 sec |
+| Products (12) | ~48 sec | ~20 sec | ~12 sec |
+| All (27) | ~2.5 min | ~45 sec | ~30 sec |
 
 ### Оптимизации
 - Параллельное выполнение на уровне методов
@@ -200,12 +200,12 @@ docker-compose -f docker/docker-compose.yml up
 
 ### Users API (15 тестов)
 
-**GET /api/users**
+**GET /api/users (3 теста)**
 - ✅ TC-001: Get users list with valid API key
 - ✅ TC-002: Verify user object structure
 - ✅ TC-003: Get second page pagination
 
-**POST /api/login**
+**POST /api/login (6 тестов)**
 - ✅ TC-006: Login with valid credentials
 - ✅ TC-007: Login with wrong password
 - ✅ TC-008: Login with non-existent email
@@ -213,7 +213,7 @@ docker-compose -f docker/docker-compose.yml up
 - ✅ TC-010: Login without email
 - ✅ TC-011: Invalid email format
 
-**POST /api/users**
+**POST /api/users (6 тестов)**
 - ✅ TC-012: Create user with valid data
 - ✅ TC-013: Create without name
 - ✅ TC-014: Create without job
@@ -221,21 +221,20 @@ docker-compose -f docker/docker-compose.yml up
 - ✅ TC-016: Verify createdAt format
 - ✅ TC-017: Verify ID uniqueness
 
-### Products API (13 тестов)
+### Products API (12 тестов)
 
-**GET /products**
+**GET /products (4 теста)**
 - ✅ TC-018: Get products list
 - ✅ TC-019: Verify data types
 - ✅ TC-020: Verify UUID format
 - ✅ TC-021: Verify price validation
 
-**GET /product/{id}**
+**GET /product/{id} (3 теста)**
 - ✅ TC-022: Get by existing ID
 - ✅ TC-023: Get by non-existent ID
 - ✅ TC-024: Invalid UUID format
-- ✅ TC-025: Data consistency
 
-**POST /products**
+**POST /products (5 тестов)**
 - ✅ TC-026: Create with empty body
 - ✅ TC-027: Default values generation
 - ✅ TC-028: Create with custom data
@@ -308,13 +307,13 @@ docker-compose -f docker/docker-compose.yml up
 - ✅ Code Coverage: N/A (API tests)
 
 ### Текущий статус
-- Implementation: 100% (28/28)
+- Implementation: 100% (27/27)
 
 ## Готовность к использованию
 
 ### Production Ready Checklist
 - ✅ Все основные компоненты реализованы
-- ✅ 28 из 28 тестов готовы (100%)
+- ✅ 27 из 27 тестов готовы (100%)
 - ✅ Полная документация
 - ✅ CI/CD настроен
 - ✅ Docker support
@@ -344,9 +343,9 @@ docker-compose -f docker/docker-compose.yml up
 - **Issues**: https://github.com/Sherlock0731/qa-api-framework/issues
 - **Documentation**: docs/
 
-## Лицензия
+## License
 
-MIT License - свободное использование и модификация.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
